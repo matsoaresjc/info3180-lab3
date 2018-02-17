@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
     {% block css %} {% endblock%}
   </head>
+
+  <!-- For Flash Message -->
+
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+        <ul class= "alert alert-success">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+     {% endif %}
+  {% endwith %}
   <body>
     <header>
         {% include "header.html" %}

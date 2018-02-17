@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">   
+
+{% endblock %}
+
+{% block main %}
+
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<section id="contact" class="content-section text-center">
+        <div class="contact-section">
+            <div class="container">
+              <h2>Contact Form</h2>
+              <p> Please fill out the form below</p>
+
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                  <form class = "form-horizontal" method = "POST" action = "">
+                  	{{ form.name.label(class = "form-group") }}  {{ form.name(class = "form-control",placeholder = "John Brown") }}
+
+                  	{{ form.email.label(class = "form-group") }}  {{ form.email(class = "form-control",placeholder = "myemail@example.com")  }}	
+
+                  	{{ form.subject.label(class = "form-group") }}  {{ form.subject(class = "form-control")}}
+
+                  	{{ form.msg.label(class = "form-group") }} {{ form.msg(class = "form-control",placeholder = "Enter your message",size = 20)  }}	
+
+                  	{{ form.csrf_token }}			
+                  
+                    <button type="submit" class="btn btn-default">Send Message</button>
+                  </form>
+
+                
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+{% endblock %}      
